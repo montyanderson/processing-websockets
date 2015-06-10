@@ -8,9 +8,9 @@ Install
 
 * Install required node.js libraries
 
-
-   cd server
-   npm install
-   
+```
+cd server
+npm install
+```
 
 * Install the [processing redis client](https://github.com/nok/redis-processing)

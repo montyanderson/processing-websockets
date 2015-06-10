@@ -1,23 +1,35 @@
+import de.voidplus.redis.*;
 
+PShape object;
+Redis redis;
 
-PShape rocket;
+int pointX, pointY, pointZ;
+int x = 0, y = 0, z = 0;
 
-float ry;
-  
 public void setup() {
   size(640, 360, OPENGL);
     
-  rocket = loadShape("rocket.obj");
+  object = loadShape("rocket.obj");
+  redis = new Redis(this, "localhost", 6379);
+  
+  pointX = width / 2;
+  pointY = height / 2;
+  pointZ = -400;
 }
+
+
 
 public void draw() {
   background(0);
   lights();
   
-  translate(width/2, height/2 + 100, -200);
-  rotateZ(PI);
-  rotateY(ry);
-  shape(rocket);
+  x = Integer.parseInt(redis.get("rotateX"));
+  y = Integer.parseInt(redis.get("rotateY"));
+  z = Integer.parseInt(redis.get("rotateZ"));
   
-  ry += 0.02;
+  translate(pointX, pointY, pointZ);
+  rotateX(x);
+  rotateY(y);
+  rotateZ(z);
+  shape(object);
 }
