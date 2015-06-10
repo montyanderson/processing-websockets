@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta charset="utf-8" />
+
+		<style>
+		input {
+			width: 100%;
+		}
+		</style>
+
+	</head>
+	<body>
+
+		<input class="rotate" data-axis="X" type="range" />
+		<input class="rotate" data-axis="Y" type="range" />
+		<input class="rotate" data-axis="Z" type="range" />
+
+		<script src="jquery-2.1.4.min.js"></script>
+		<script src="socket.io/socket.io.js"></script>
+		<script>
+		var socket = io.connect(location.origin);
+
+		$(".rotate").change(function() {
+			console.log("change");
+			var name = "rotate" + $(this).attr("data-axis");
+			var data = [];
+			data[name] = $(this).val();
+			console.log($.extend({}, data));
+			socket.emit("data", $.extend({}, data));
+		})
+		</script>
+
+	</body>
+</html>
