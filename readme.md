@@ -17,7 +17,15 @@ npm install # May require root on some systems
 
 ![installing redis processing client](https://i.imgur.com/U2jpQnZ.png)
 
-* Start the server by running:
+* Start redis by running:
+
+``` bash
+redis-server
+# Append an '&' on linux to run it,
+# even after you close the terminal
+```
+
+* Start the web server by running:
 
 ``` bash
 node server.js

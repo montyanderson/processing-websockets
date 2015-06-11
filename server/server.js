@@ -19,11 +19,17 @@ io.on("connection", function(socket) {
 		} else
 		if(data.rotateY) {
 			redis.set("rotateY", parseInt(data.rotateY));
-		} else 
+		} else
 		if(data.rotateZ) {
 			redis.set("rotateZ", parseInt(data.rotateZ));
 		}
 	});
 });
 
+redis.set("rotateX", "0");
+redis.set("rotateY", "0");
+redis.set("rotateZ", "0");
+
 server.listen(8080);
+
+console.log("Server running at http://localhost:8080");
