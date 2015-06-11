@@ -4,7 +4,7 @@ PShape object;
 Redis redis;
 
 int pointX, pointY, pointZ;
-int x = 0, y = 0, z = 0;
+float radiansX, radiansY, radiansZ;
 
 public void setup() {
   size(640, 360, OPENGL);
@@ -23,13 +23,13 @@ public void draw() {
   background(0);
   lights();
   
-  x = Integer.parseInt(redis.get("rotateX"));
-  y = Integer.parseInt(redis.get("rotateY"));
-  z = Integer.parseInt(redis.get("rotateZ"));
+  radiansX = radians(Integer.parseInt(redis.get("rotateX")));
+  radiansY = radians(Integer.parseInt(redis.get("rotateY")));
+  radiansZ = radians(Integer.parseInt(redis.get("rotateZ")));
   
   translate(pointX, pointY, pointZ);
-  rotateX(x);
-  rotateY(y);
-  rotateZ(z);
+  rotateX(radiansX);
+  rotateY(radiansY);
+  rotateZ(radiansZ);
   shape(object);
 }

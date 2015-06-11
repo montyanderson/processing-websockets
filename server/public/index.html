@@ -5,10 +5,15 @@
 		<meta charset="utf-8" />
 
 		<style>
+		body {
+			font-family: Sans-serif;
+		}
+
 		input {
 			width: 100%;
 		}
 		</style>
+
 
 	</head>
 	<body>
@@ -17,20 +22,11 @@
 		<input class="rotate" data-axis="Y" type="range" />
 		<input class="rotate" data-axis="Z" type="range" />
 
+		<p id="tps"></p>
+
 		<script src="jquery-2.1.4.min.js"></script>
 		<script src="socket.io/socket.io.js"></script>
-		<script>
-		var socket = io.connect(location.origin);
-
-		$(".rotate").change(function() {
-			console.log("change");
-			var name = "rotate" + $(this).attr("data-axis");
-			var data = [];
-			data[name] = $(this).val();
-			console.log($.extend({}, data));
-			socket.emit("data", $.extend({}, data));
-		})
-		</script>
+		<script src="client.js"></script>
 
 	</body>
 </html>
