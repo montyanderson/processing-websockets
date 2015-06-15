@@ -6,6 +6,12 @@ Install
 
 * Install [nodejs](https://nodejs.org/download/), [processing](https://processing.org/download/?processing), and [redis](http://redis.io/download).
 
+* Download a zip or clone the repository by doing:
+
+``` bash
+git clone https://github.com/montyanderson/processing-websockets.git
+```
+
 * Install required node.js libraries:
 
 ``` bash
@@ -33,4 +39,4 @@ node server.js
 
 * You're nearly there! Now run **sketch/sketch.pde** in processing to start the rendering
 
-* Go to **localhost:8080** in you're browser, and you're set!
+* Go to **localhost:8080** in your browser, and you're set!
